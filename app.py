@@ -58,7 +58,7 @@ def root_path(path):
 
     uagent = request.headers.get('User-Agent')
     if not is_supporting_client(uagent, request.referrer, request.remote_addr):
-        return "", 403
+        return redirect("https://ryogrid.net/dist/nip36-needed.jpg")
     
     if not check_path(path):
         return "", 400
