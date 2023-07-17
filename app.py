@@ -10,6 +10,11 @@ SUPPORTING_WEB_CLIENTS = [
     "astraea.mousedev.page",    
 ]
 
+SUPPORTING_NATIVE_CLIENTS = [
+    "okhttp/5.0.0-alpha.11", # Amethyst
+    "Dart/3.0 (dart:io)", # Plebstar
+]
+
 MAX_STORE_IP_NUM = 1000
 REMOVE_IP_NUM = 100
 
@@ -19,20 +24,23 @@ accessed_ip_dict = {}
 def is_supporting_client(uagent, referer, ip_addr):
     try:
         # for case that web client open image file URL in new tab or window
-        if ip_addr != None \
-            and accessed_ip_dict[ip_addr] == True \
-            and uagent.find("damus") == -1: # Damus is not supporting native client
-            return True
+        # Damus is not NIP-36 supporting
+        if uagent.find("damus") == -1 \
+            and ip_addr != None \
+            and accessed_ip_dict[ip_addr] == True:
+                return True
     except:
         pass
 
-    if uagent.find("okhttp/5.0.0-alpha.11") != -1: # Amethyst
-        # want to add Plebstar... but user agent is unknown...
-        return True
-    else: # web clients
-        for client_url in SUPPORTING_WEB_CLIENTS:
-            if referer != None and referer.find(client_url) != -1:
-                return True
+    # native clients
+    for client_url in SUPPORTING_NATIVE_CLIENTS:
+        if uagent.find(client_url) != -1:
+            return True
+        
+    # web clients
+    for client_url in SUPPORTING_WEB_CLIENTS:
+        if referer != None and referer.find(client_url) != -1:
+            return True
 
     return False
 
