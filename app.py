@@ -12,7 +12,7 @@ SUPPORTING_WEB_CLIENTS = [
 
 SUPPORTING_NATIVE_CLIENTS = [
     "okhttp/5.0.0-alpha.11", # Amethyst
-    "Dart/3.0 (dart:io)", # Plebstar
+    "Dart/3.0 (dart:io)", # Plebstr
 ]
 
 MAX_STORE_IP_NUM = 1000
