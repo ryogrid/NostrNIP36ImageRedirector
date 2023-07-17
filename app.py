@@ -3,12 +3,23 @@ import re
 
 app = Flask(__name__)
 
+SUPPORTING_WEB_CLIENTS = [
+    "syusui-s.github.io",
+    "snort.social",
+    "nostter.vercel.app",
+    "astraea.mousedev.page",    
+]
 def is_supporting_client(uagent, referer):
     print(uagent)
-    if uagent.find("okhttp/5.0.0-alpha.11") != -1: # Amethyst?
+    if uagent.find("okhttp/5.0.0-alpha.11") != -1: # Amethyst
+        # want to add Plebstar... but user agent is unknown...
         return True
-    else:
-        return False
+    else: # web clients
+        for client_url in SUPPORTING_WEB_CLIENTS:
+            if referer.find(client_url) != -1:
+                return True
+
+    return False
 
 def check_path(path):
     pattern = r'^[a-zA-Z0-9/\.]*$'
