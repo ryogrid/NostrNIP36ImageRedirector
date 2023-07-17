@@ -62,4 +62,4 @@ def root_path(path):
             del accessed_ip_dict[accessed_ip_list[idx]]
         accessed_ip_list = accessed_ip_dict[REMOVE_IP_NUM:]
 
-    return redirect("https://nostr.build/" + path)
+    return redirect("https://cdn.nostr.build/" + path)
