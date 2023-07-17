@@ -10,13 +10,12 @@ SUPPORTING_WEB_CLIENTS = [
     "astraea.mousedev.page",    
 ]
 def is_supporting_client(uagent, referer):
-    print(uagent)
     if uagent.find("okhttp/5.0.0-alpha.11") != -1: # Amethyst
         # want to add Plebstar... but user agent is unknown...
         return True
     else: # web clients
         for client_url in SUPPORTING_WEB_CLIENTS:
-            if referer.find(client_url) != -1:
+            if referer != None and referer.find(client_url) != -1:
                 return True
 
     return False
