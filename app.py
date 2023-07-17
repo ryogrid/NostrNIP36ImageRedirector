@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 def is_supporting_client(uagent, referer):
     print(uagent)
-    if uagent.find("Amethyst") != -1:
+    if uagent.find("okhttp/5.0.0-alpha.11") != -1: # Amethyst?
         return True
     else:
         return False
