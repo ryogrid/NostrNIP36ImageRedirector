@@ -4,6 +4,7 @@ import re
 app = Flask(__name__)
 
 def is_supporting_client(uagent, referer):
+    print(uagent)
     if uagent.find("Amethyst") != -1:
         return True
     else:
