@@ -19,7 +19,9 @@ accessed_ip_dict = {}
 def is_supporting_client(uagent, referer, ip_addr):
     try:
         # for case that web client open image file URL in new tab or window
-        if ip_addr != None and accessed_ip_dict[ip_addr] == True:
+        if ip_addr != None \
+            and accessed_ip_dict[ip_addr] == True \
+            and uagent.find("damus") == -1: # Damus is not supporting native client
             return True
     except:
         pass
