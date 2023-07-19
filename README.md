@@ -1,7 +1,7 @@
 # Abstract
 - domain specific reverse proxy like server software with Python and Flask framework
-  - NIP36 supporting client is reidirect to original image file which is uploaded to nostr.build
-  - **NOT** NIP-36 supporting client is redirect to error image file
+  - NIP36 supporting client is reidirected to original image file which is uploaded to nostr.build
+  - **NOT** NIP-36 supporting client is redirected to error image file
 - current server running hosts
   - [https://i.ryogird.net/](https://i.ryogird.net/)
   - ...
