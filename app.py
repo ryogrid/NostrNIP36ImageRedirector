@@ -8,7 +8,7 @@ SUPPORTING_WEB_CLIENTS = [
     "snort.social",
     "nostter.vercel.app",
     "astraea.mousedev.page",
-    "stok33.github.io/NostrIllustStock/",
+    "stok33.github.io",
 ]
 
 SUPPORTING_NATIVE_CLIENTS = [
