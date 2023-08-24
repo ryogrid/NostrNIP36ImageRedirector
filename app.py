@@ -16,8 +16,8 @@ SUPPORTING_NATIVE_CLIENTS = [
     "Dart/3.0 (dart:io)", # Plebstr
 ]
 
-MAX_STORE_IP_NUM = 1000
-REMOVE_IP_NUM = 100
+MAX_STORE_IP_NUM = 50
+REMOVE_IP_NUM = 10
 
 accessed_ip_list = []
 accessed_ip_dict = {}
