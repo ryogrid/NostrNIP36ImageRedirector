@@ -14,6 +14,7 @@ SUPPORTING_WEB_CLIENTS = [
 SUPPORTING_NATIVE_CLIENTS = [
     "okhttp/5.0.0-alpha.11", # Amethyst
     "Dart/3.0 (dart:io)", # Plebstr
+    "snort.social", # snort is web client but its info is included in User-Agent often
 ]
 
 MAX_STORE_IP_NUM = 50
