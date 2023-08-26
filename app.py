@@ -64,13 +64,16 @@ def root_path(path):
     if not check_path(path):
         return "", 400
 
-    # store accessed IP address    
-    accessed_ip_list.append(request.remote_addr)
-    accessed_ip_dict[request.remote_addr] = True
-    # remove old memoried IP addresses
-    if len(accessed_ip_list) > MAX_STORE_IP_NUM:
-        for idx in range(0, REMOVE_IP_NUM):
-            del accessed_ip_dict[accessed_ip_list[idx]]
-        accessed_ip_list = accessed_ip_dict[REMOVE_IP_NUM:]
+    try:
+        # store accessed IP address    
+        accessed_ip_list.append(request.remote_addr)
+        accessed_ip_dict[request.remote_addr] = True
+        # remove old memoried IP addresses
+        if len(accessed_ip_list) > MAX_STORE_IP_NUM:
+            for idx in range(0, REMOVE_IP_NUM):
+                del accessed_ip_dict[accessed_ip_list[idx]]
+            accessed_ip_list = accessed_ip_dict[REMOVE_IP_NUM:]
+    except:
+        pass
 
     return redirect("https://cdn.nostr.build/" + path)
